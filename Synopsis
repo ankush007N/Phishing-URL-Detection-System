@@ -1,0 +1,224 @@
+# 📘 Project Synopsis
+
+## 🛡️ Title of the Project
+
+**Phishing URL Detection System Using Python Flask**
+
+---
+
+## 📌 Introduction
+
+Phishing is one of the most common cyber threats where attackers trick users into revealing sensitive information such as usernames, passwords, and banking details through malicious websites. With the increasing use of the internet, detecting phishing URLs has become an essential cybersecurity requirement.
+
+This project focuses on developing a **Phishing URL Detection System** using **Python, Flask, HTML, and CSS**. The system analyzes a given URL and determines whether it is **legitimate or phishing** based on predefined heuristic rules.
+
+---
+
+## 🎯 Objectives of the Project
+
+* To understand the concept of phishing attacks and malicious URLs
+* To design a web-based phishing detection system
+* To implement URL analysis using Python
+* To help users identify unsafe and suspicious websites
+* To create awareness about cybersecurity threats
+
+---
+
+## 🧠 Problem Statement
+
+Many internet users unknowingly fall victim to phishing attacks due to a lack of awareness and proper detection mechanisms. Existing systems are often complex or expensive. Hence, there is a need for a **simple, lightweight, and effective phishing URL detection system** that can be easily used by common users.
+
+---
+
+## ⚙️ Methodology / Approach
+
+The system uses a **rule-based heuristic approach** to detect phishing URLs. The following parameters are analyzed:
+
+* Length of the URL
+* Presence of special characters such as `@`
+* Use of IP address instead of domain name
+* Presence of suspicious keywords (login, verify, bank, secure, etc.)
+* URL structure validation
+
+The backend is developed using **Flask (Python framework)**, while the frontend is designed using **HTML and CSS**.
+
+---
+
+## 🧩 System Requirements
+
+### Hardware Requirements
+
+* Processor: Intel i3 or above
+* RAM: 4 GB minimum
+* Hard Disk: 10 GB free space
+
+### Software Requirements
+
+* Operating System: Windows / Linux
+* Programming Language: Python 3.x
+* Framework: Flask
+* Frontend: HTML, CSS
+* Browser: Google Chrome / Firefox
+
+---
+
+## 🏗️ System Architecture
+
+1. User enters a URL in the web interface
+2. URL is sent to the Flask backend
+3. URL is analyzed using heuristic rules
+4. System classifies the URL as **Phishing** or **Legitimate**
+5. Result is displayed to the user
+
+---
+
+## ✅ Advantages
+
+* Simple and easy to use
+* Lightweight and fast execution
+* No external API required
+* Useful for beginners in cybersecurity
+
+---
+
+## ❌ Limitations
+
+* Rule-based detection may produce false positives
+* Cannot detect newly generated phishing URLs effectively
+* Not as accurate as machine learning-based systems
+
+---
+
+## 🚀 Future Scope
+
+* Integrating machine learning algorithms
+* Using real-time URL reputation APIs
+* Storing scanned URLs in a database
+* Developing a browser extension
+
+---
+
+## 🧾 Conclusion
+
+The Phishing URL Detection System provides a basic yet effective method to identify malicious URLs. This project helps users understand phishing techniques and promotes cybersecurity awareness. It also serves as a strong foundation for implementing advanced machine learning-based phishing detection systems in the future.
+
+---
+
+## 📚 Applications
+
+* Cybersecurity education
+* Awareness programs
+* Academic mini-projects
+* Safe web browsing assistance
+# 📘 Project Synopsis
+
+## 🛡️ Title of the Project
+
+**Phishing URL Detection System Using Python Flask**
+
+---
+
+## 📌 Introduction
+
+Phishing is one of the most common cyber threats where attackers trick users into revealing sensitive information such as usernames, passwords, and banking details through malicious websites. With the increasing use of the internet, detecting phishing URLs has become an essential cybersecurity requirement.
+
+This project focuses on developing a **Phishing URL Detection System** using **Python, Flask, HTML, and CSS**. The system analyzes a given URL and determines whether it is **legitimate or phishing** based on predefined heuristic rules.
+
+---
+
+## 🎯 Objectives of the Project
+
+* To understand the concept of phishing attacks and malicious URLs
+* To design a web-based phishing detection system
+* To implement URL analysis using Python
+* To help users identify unsafe and suspicious websites
+* To create awareness about cybersecurity threats
+
+---
+
+## 🧠 Problem Statement
+
+Many internet users unknowingly fall victim to phishing attacks due to a lack of awareness and proper detection mechanisms. Existing systems are often complex or expensive. Hence, there is a need for a **simple, lightweight, and effective phishing URL detection system** that can be easily used by common users.
+
+---
+
+## ⚙️ Methodology / Approach
+
+The system uses a **rule-based heuristic approach** to detect phishing URLs. The following parameters are analyzed:
+
+* Length of the URL
+* Presence of special characters such as `@`
+* Use of IP address instead of domain name
+* Presence of suspicious keywords (login, verify, bank, secure, etc.)
+* URL structure validation
+
+The backend is developed using **Flask (Python framework)**, while the frontend is designed using **HTML and CSS**.
+
+---
+
+## 🧩 System Requirements
+
+### Hardware Requirements
+
+* Processor: Intel i3 or above
+* RAM: 4 GB minimum
+* Hard Disk: 10 GB free space
+
+### Software Requirements
+
+* Operating System: Windows / Linux
+* Programming Language: Python 3.x
+* Framework: Flask
+* Frontend: HTML, CSS
+* Browser: Google Chrome / Firefox
+
+---
+
+## 🏗️ System Architecture
+
+1. User enters a URL in the web interface
+2. URL is sent to the Flask backend
+3. URL is analyzed using heuristic rules
+4. System classifies the URL as **Phishing** or **Legitimate**
+5. Result is displayed to the user
+
+---
+
+## ✅ Advantages
+
+* Simple and easy to use
+* Lightweight and fast execution
+* No external API required
+* Useful for beginners in cybersecurity
+
+---
+
+## ❌ Limitations
+
+* Rule-based detection may produce false positives
+* Cannot detect newly generated phishing URLs effectively
+* Not as accurate as machine learning-based systems
+
+---
+
+## 🚀 Future Scope
+
+* Integrating machine learning algorithms
+* Using real-time URL reputation APIs
+* Storing scanned URLs in a database
+* Developing a browser extension
+
+---
+
+## 🧾 Conclusion
+
+The Phishing URL Detection System provides a basic yet effective method to identify malicious URLs. This project helps users understand phishing techniques and promotes cybersecurity awareness. It also serves as a strong foundation for implementing advanced machine learning-based phishing detection systems in the future.
+
+---
+
+## 📚 Applications
+
+* Cybersecurity education
+* Awareness programs
+* Academic mini-projects
+* Safe web browsing assistance
