@@ -4,7 +4,6 @@ import re
 
 app = Flask(__name__)
 
-
 model = pickle.load(open("phishing_model.pkl", "rb"))
 
 
@@ -16,19 +15,15 @@ def analyze_url(url):
     if re.search(ip_pattern, url):
         reasons.append("URL contains an IP address")
 
-    
     if len(url) > 75:
         reasons.append("URL is unusually long")
 
-   
     if "@" in url:
         reasons.append("URL contains '@' symbol")
 
-   
     if not url.startswith("https"):
         reasons.append("Website not using HTTPS")
 
-  
     keywords = ["login","verify","update","secure","bank","account"]
     if any(k in url.lower() for k in keywords):
         reasons.append("URL contains suspicious keywords")
@@ -36,38 +31,28 @@ def analyze_url(url):
     return reasons
 
 
-
 def extract_features(url):
 
     features = []
 
-  
     ip_pattern = r'(\d{1,3}\.){3}\d{1,3}'
     features.append(-1 if re.search(ip_pattern, url) else 1)
 
-  
     features.append(-1 if len(url) > 75 else 1)
 
-    
     shorteners = ["bit.ly", "tinyurl", "goo.gl", "ow.ly"]
     features.append(-1 if any(s in url for s in shorteners) else 1)
 
-    
     features.append(-1 if "@" in url else 1)
 
-    
     features.append(-1 if url.count("//") > 1 else 1)
 
-    
     features.append(-1 if "-" in url else 1)
 
-    
     features.append(-1 if url.count(".") > 3 else 1)
 
-    
     features.append(1 if url.startswith("https") else -1)
 
-    
     while len(features) < 30:
         features.append(1)
 
@@ -78,34 +63,28 @@ def extract_features(url):
 def home():
 
     result = None
-    risk = None
     reasons = []
 
     if request.method == "POST":
 
         url = request.form["url"]
 
-        
-        features = extract_features(url)
-
-        
-        prediction = model.predict(features)[0]
-
-    
-        prob = model.predict_proba(features)[0]
-        risk = round(max(prob) * 100, 2)
-
-        
         reasons = analyze_url(url)
 
-        if prediction == -1:
+        if len(reasons) >= 2:
             result = "⚠️ Phishing Website Detected"
-        else:
-            result = "✅ Legitimate Website"
 
-    return render_template("index.html", result=result, risk=risk, reasons=reasons)
+        else:
+            features = extract_features(url)
+            prediction = model.predict(features)[0]
+
+            if prediction == -1:
+                result = "⚠️ Phishing Website Detected"
+            else:
+                result = "✅ Legitimate Website"
+
+    return render_template("index.html", result=result, reasons=reasons)
 
 
 if __name__ == "__main__":
-
     app.run(debug=True)
