@@ -23,3 +23,4 @@ pickle.dump(model, open("phishing_model.pkl", "wb"))
 
 print("Model saved successfully")
 
+#machine learning
