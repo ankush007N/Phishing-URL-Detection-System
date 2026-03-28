@@ -4,6 +4,7 @@ import re
 
 app = Flask(__name__)
 
+
 model = pickle.load(open("phishing_model.pkl", "rb"))
 
 
@@ -24,9 +25,13 @@ def analyze_url(url):
     if not url.startswith("https"):
         reasons.append("Website not using HTTPS")
 
-    keywords = ["login","verify","update","secure","bank","account"]
+    keywords = ["login", "verify", "update", "secure", "bank", "account"]
     if any(k in url.lower() for k in keywords):
         reasons.append("URL contains suspicious keywords")
+
+    suspicious_domains = [".xyz", ".tk", ".ml", ".ga"]
+    if any(ext in url for ext in suspicious_domains):
+        reasons.append("Suspicious domain detected")
 
     return reasons
 
@@ -67,11 +72,19 @@ def home():
 
     if request.method == "POST":
 
-        url = request.form["url"]
+        url = request.form["url"].strip()
+
+        if not url.startswith("http"):
+            result = "❌ Please enter a valid URL (include http/https)"
+            return render_template("index.html", result=result)
+
+        if "." not in url:
+            result = "❌ Invalid URL format"
+            return render_template("index.html", result=result)
 
         reasons = analyze_url(url)
 
-        if len(reasons) >= 2:
+        if len(reasons) >= 1:
             result = "⚠️ Phishing Website Detected"
 
         else:
