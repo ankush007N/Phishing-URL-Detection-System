@@ -27,10 +27,13 @@
         {% if result %}
 
 <div class="result-box">
+    {% if risk is not none %}
+<p><b>Risk Score:</b> {{ risk }}%</p>
+{% endif %}
 
 <h2>{{ result }}</h2>
 
-<p>Risk Score: <b>{{ risk }}%</b></p>
+
 
 {% if reasons %}
 <h3>Reasons:</h3>
