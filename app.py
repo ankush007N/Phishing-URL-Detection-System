@@ -8,6 +8,7 @@ app = Flask(__name__)
 model = pickle.load(open("phishing_model.pkl", "rb"))
 
 
+
 def analyze_url(url):
 
     reasons = []
@@ -33,7 +34,11 @@ def analyze_url(url):
     if any(ext in url for ext in suspicious_domains):
         reasons.append("Suspicious domain detected")
 
+    if "trycloudflare.com" in url or "ngrok.io" in url:
+        reasons.append("Temporary tunnel service detected")
+
     return reasons
+
 
 
 def extract_features(url):
@@ -69,34 +74,45 @@ def home():
 
     result = None
     reasons = []
+    risk = 0
 
     if request.method == "POST":
 
         url = request.form["url"].strip()
 
-        if not url.startswith("http"):
-            result = "❌ Please enter a valid URL (include http/https)"
+        
+        if not re.match(r'https?://[^\s]+\.[^\s]+', url):
+            result = "❌ Please enter a valid URL"
             return render_template("index.html", result=result)
 
-        if "." not in url:
-            result = "❌ Invalid URL format"
-            return render_template("index.html", result=result)
-
+        
         reasons = analyze_url(url)
 
-        if len(reasons) >= 1:
+        
+        risk = min(len(reasons) * 20, 100)
+
+        
+        features = extract_features(url)
+        prediction = model.predict(features)[0]
+
+        
+        if "Temporary tunnel service detected" in reasons:
+            result = "⚠️ Suspicious Website"
+            risk = max(risk, 60)
+
+        elif prediction == -1 or len(reasons) >= 2:
             result = "⚠️ Phishing Website Detected"
+            risk = max(risk, 80)
+
+        elif len(reasons) == 1:
+            result = "⚠️ Suspicious Website"
+            risk = max(risk, 40)
 
         else:
-            features = extract_features(url)
-            prediction = model.predict(features)[0]
+            result = "✅ Legitimate Website"
+            risk = min(risk, 20)
 
-            if prediction == -1:
-                result = "⚠️ Phishing Website Detected"
-            else:
-                result = "✅ Legitimate Website"
-
-    return render_template("index.html", result=result, reasons=reasons)
+    return render_template("index.html", result=result, reasons=reasons, risk=risk)
 
 
 if __name__ == "__main__":
