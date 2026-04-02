@@ -2,38 +2,57 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Phishing URL Detection</title>
+<title>PhishDetector</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<div class="container">
+<header class="navbar">
 
+<h2 class="logo">PHISHINGDETECTOR</h2>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Usecases</a>
+<a href="#">Help</a>
+</nav>
+
+</header>
+
+
+<div class="container">
     <div class="card">
 
-        <h1>🔐 Phishing URL Detector</h1>
-        <p class="subtitle">Check whether a website link is safe or malicious</p>
+<h1 class="title">Phishing URL Detection</h1>
 
-        <form method="POST">
+<p class="desc">Check whether a website link is safe or malicious</p>
 
-            <div class="input-group">
-                <input type="text" name="url" placeholder="Enter website URL..." required>
-                <button type="submit">Check URL</button>
-            </div>
+<form method="POST">
 
-        </form>
+<div class="input-group">
 
-        {% if result %}
+<input type="text" name="url" placeholder="Enter a URL link in format http or https" required>
+
+<button type="submit">Scan URL</button>
+
+</div>
+
+</form>
+
+
+{% if result %}
 
 <div class="result-box">
-    {% if risk is not none %}
-<p><b>Risk Score:</b> {{ risk }}%</p>
+
+<p class="checked-url">{{ request.form.url }}</p>
+
+<h2 class="result-text">{{ result }}</h2>
+
+{% if risk is not none %}
+<p class="risk">Risk Score: {{ risk }}%</p>
 {% endif %}
-
-<h2>{{ result }}</h2>
-
-
 
 {% if reasons %}
 <h3>Reasons:</h3>
@@ -44,12 +63,12 @@
 </ul>
 {% endif %}
 
+
 </div>
 
 {% endif %}
 
-    </div>
-
+</div>
 </div>
 
 </body>
