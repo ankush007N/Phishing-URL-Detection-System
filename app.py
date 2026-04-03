@@ -11,7 +11,6 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-
 model = pickle.load(open("phishing_model.pkl", "rb"))
 
 
@@ -86,15 +85,15 @@ def analyze_url(url):
     parsed = urlparse(url)
     domain = parsed.netloc.lower().replace("www.", "")
 
-   
+    
     if not domain_exists(domain):
         reasons.append("Domain does not exist")
 
-   
+    
     if not check_ssl(domain):
         reasons.append("No valid SSL certificate")
 
-   
+    
     age = domain_age(domain)
     if age is not None and age < 30:
         reasons.append("Domain is very new")
@@ -114,6 +113,11 @@ def analyze_url(url):
         reasons.append("Suspicious domain extension")
 
     
+    shorteners = ["bit.ly","tinyurl","goo.gl","ow.ly","t.co","is.gd","buff.ly"]
+    if any(s in domain for s in shorteners):
+        reasons.append("URL shortener detected (can hide phishing links)")
+
+    
     brand_check = detect_brand_impersonation(domain)
     if brand_check:
         reasons.append(brand_check)
@@ -124,6 +128,7 @@ def analyze_url(url):
         reasons.append(typo_check)
 
     return reasons
+
 
 def extract_features(url):
 
@@ -157,7 +162,7 @@ def home():
         if not url.startswith("http"):
             url = "https://" + url
 
-        
+
         if not re.match(r'https?://[^\s]+\.[^\s]+', url):
             result = "❌ Invalid URL"
             return render_template("index.html", result=result)
@@ -165,9 +170,10 @@ def home():
         
         reasons = analyze_url(url)
 
+        
         risk = min(len(reasons) * 20, 100)
 
-        
+
         features = extract_features(url)
         prediction = model.predict(features)[0]
 
