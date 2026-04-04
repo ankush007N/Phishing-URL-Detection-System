@@ -41,7 +41,7 @@ A web-based application built with Python Flask that helps users detect phishing
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/ankush007N/phishing-url-detection-system.git
+   git clone https://github.com/your-username/phishing-url-detection-system.git
    cd phishing-url-detection-system
    ```
 
@@ -65,10 +65,10 @@ A web-based application built with Python Flask that helps users detect phishing
 
 2. **Open your browser** and navigate to:
    ```
-  [ http://127.0.0.1:5000](https://phishing-url-detection-system-xtsm.onrender.com/)
+   http://127.0.0.1:5000
    ```
 
-3. **Enter a URL** in the input field and click "( https://phishing-url-detection-system-xtsm.onrender.com/ )".
+3. **Enter a URL** in the input field and click "(https://phishing-url-detection-system-xtsm.onrender.com/)".
 
 4. **View results**: The system will display whether the URL is legitimate, suspicious, or phishing, along with risk score and reasons for the classification.
 
@@ -135,4 +135,3 @@ This project is open source and available under the [MIT License](LICENSE).
 ## Disclaimer
 
 This tool is for educational and informational purposes only. It should not be relied upon as the sole method for detecting phishing attempts. Always exercise caution and use multiple security measures.
-
