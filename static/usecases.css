@@ -10,7 +10,6 @@ background:linear-gradient(135deg,#0b2c6b,#0d3f8a,#0f5fc4);
 color:white;
 }
 
-/* NAVBAR */
 
 .navbar {
     width: 100%;
@@ -62,7 +61,6 @@ font-weight:600;
     color: #2a6df4;
 }
 
-/* HERO */
 
 .hero{
 max-width:1200px;
@@ -90,8 +88,6 @@ font-size:18px;
 opacity:0.9;
 margin-bottom:40px;
 }
-
-/* USECASE GRID */
 
 .usecase-grid{
 display:grid;
@@ -155,7 +151,6 @@ font-size:14px;
     font-size: 17px;
 }
 
-/* HOW SECTION */
 
 .how-section{
 max-width:1100px;
@@ -180,7 +175,6 @@ opacity:0.8;
     margin-bottom: 40px;
 }
 
-/* STEPS */
 
 .steps{
 display:flex;
@@ -218,8 +212,6 @@ font-size: 16px;
     opacity: 0.9;
 }
 
-/* CTA SECTION */
-
 .cta{
 max-width:1100px;
 margin:80px auto;
@@ -248,8 +240,6 @@ text-decoration:none;
 font-weight:bold;
 }
 
-/* STATS */
-
 .stats{
 display:flex;
 justify-content:center;
@@ -272,8 +262,6 @@ font-size:28px;
 font-size:14px;
 opacity:0.8;
 }
-
-/* MOBILE */
 
 @media(max-width:900px){
 
