@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Help | PhishingDetector</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+</head>
+
+<body>
+
+<div class="navbar">
+<div class="logo">PHISHINGDETECTOR</div>
+
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="#">Usecases</a></li>
+<li><a href="/help">Help</a></li>
+</ul>
+</div>
+
+
+<section class="help-section">
+
+<h1>Still Need Help?</h1>
+<p>Send us a message and our team will get back to you within 24 hours</p>
+
+
+<div class="help-container">
+
+
+<div class="help-left">
+
+<div class="support-card">
+<h3>Email Support</h3>
+<p>Get help via email</p>
+<span>support@phishingdetector.com</span>
+</div>
+
+<div class="support-card">
+<h3>Response Time</h3>
+<p>We typically respond within 24 hours during business days</p>
+</div>
+
+<div class="support-card">
+<h3>Enterprise Support</h3>
+<p>Need priority support? Contact us for enterprise plans.</p>
+</div>
+
+</div>
+
+
+
+<div class="help-form">
+
+    {% if success %}
+    <p style="color: lightgreen;">{{ success }}</p>
+    {% endif %}
+<form action="/help" method="POST"> 
+
+<div class="row">
+<input type="text" placeholder="Your Name" name="name" required>
+<input type="email" placeholder="Email Address" name="email" required>
+</div>
+
+<div class="row">
+<input type="text" placeholder="Subject" name="subject" required>
+<select name="category">
+<option>Select Category</option>
+<option>General Question</option>
+<option>Report Phishing</option>
+<option>Technical Issue</option>
+</select>
+</div>
+
+<textarea name="message" placeholder="Tell us more about how we can help you"></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<section class="faq-section">
+
+<h2>Frequently Asked Questions</h2>
+<p>Quick answers to questions you may have</p>
+
+<div class="faq-container">
+
+<div class="faq-item">How does the phishing detection work?</div>
+
+<div class="faq-item">How accurate is the phishing detection?</div>
+
+<div class="faq-item">Is my data secure when I use this service?</div>
+
+<div class="faq-item">Can I scan multiple URLs at once?</div>
+
+<div class="faq-item">What should I do if a URL is marked unsafe?</div>
+
+</div>
+
+</section>
+
+
+</body>
+</html>
