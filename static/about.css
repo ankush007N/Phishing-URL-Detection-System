@@ -10,7 +10,7 @@ body{
     font-family: "Segoe UI", sans-serif;
 }
 
-/* NAVBAR */
+
 
 .navbar{
 width:100%;
@@ -49,7 +49,6 @@ transition:0.3s;
 color:#2563eb;
 }
 
-/* HERO SECTION */
 
 .hero{
 min-height: 100vh;
@@ -82,7 +81,7 @@ opacity:0.9;
 line-height:1.6;
 }
 
-/* STATS */
+
 
 .stats{
 margin-top:60px;
@@ -112,7 +111,6 @@ font-size:14px;
 opacity:0.8;
 }
 
-/* PROCESS SECTION */
 
 .process{
 background:linear-gradient(135deg,#1e40af,#2563eb);
@@ -154,7 +152,6 @@ box-shadow:0 10px 25px rgba(0,0,0,0.2);
 margin-bottom:10px;
 }
 
-/* TRUST SECTION */
 
 .trust{
 padding:80px 20px;
@@ -198,7 +195,6 @@ transform:translateY(-6px);
 margin:15px 0;
 }
 
-/* INPUT CARD (HOME PAGE) */
 
 .container{
 display:flex;
@@ -259,7 +255,6 @@ background:#f3f4f6;
 border-radius:10px;
 }
 
-/* MOBILE */
 
 @media(max-width:768px){
 
