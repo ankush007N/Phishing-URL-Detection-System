@@ -77,7 +77,6 @@ def detect_brand_impersonation(domain):
     return None
 
 
-# 🔹 Typosquatting detection
 def detect_typosquatting(domain):
 
     popular_domains = [
@@ -123,7 +122,6 @@ def analyze_url(url):
     if any(domain.endswith(tld) for tld in suspicious_tlds):
         reasons.append("Suspicious domain extension")
 
-    # 🔹 URL shortener detection
     shorteners = ["bit.ly","tinyurl.com","goo.gl","ow.ly","t.co","is.gd","buff.ly"]
     if domain in shorteners:
         reasons.append("URL shortener detected (can hide phishing links)")
@@ -177,7 +175,6 @@ def home():
 
         reasons = analyze_url(url)
 
-        # 🔹 Risk score calculation
         risk = min(len(reasons) * 20, 100)
 
         features = extract_features(url)
