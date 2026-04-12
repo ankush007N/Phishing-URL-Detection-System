@@ -1,18 +1,20 @@
 import pandas as pd
-import pickle
-from sklearn.model_selection import cross_val_score
-from sklearn.metrics import accuracy_score
-
+from sklearn.model_selection import cross_val_score, KFold
+from sklearn.ensemble import RandomForestClassifier
 
 data = pd.read_csv("Phishing_Legitimate_full.csv")
 
-
-X = data.drop(["CLASS_LABEL"], axis=1)
+X = data.drop(["CLASS_LABEL", "id", "Index"], axis=1, errors="ignore")
 y = data["CLASS_LABEL"]
 
-model = pickle.load(open("phishing_model.pkl", "rb"))
+model = RandomForestClassifier(
+    n_estimators=200,
+    random_state=42
+)
 
-scores = cross_val_score(model, X, y, cv=5)
+kf = KFold(n_splits=5, shuffle=True, random_state=42)
+
+scores = cross_val_score(model, X, y, cv=kf)
 
 accuracy = scores.mean() * 100
 accuracy = round(accuracy, 2)
